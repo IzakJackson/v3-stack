@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [To Do]
 
-- Create Basic Auth (layout, email signup/login/confirm)
+- Create Basic Auth (layout, email sign in/sign up/confirm)
 - Install Test Utils
 - Configure Vitest
 

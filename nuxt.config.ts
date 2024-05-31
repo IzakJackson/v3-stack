@@ -2,7 +2,12 @@
 import './env';
 
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+    timeline: {
+      enabled: true,
+    },
+  },
   build: {
     transpile: ['trpc-nuxt'],
   },
