@@ -1,0 +1,73 @@
+{
+  "name": "v3-stack",
+  "description": "The best way to start a full-stack, type safe, Nuxt app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev -o",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "author": {
+    "name": "Izak Jackson",
+    "website": "izakjackson.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/izakjackson/v3-stack"
+  },
+  "bugs": {
+    "url": "https://github.com/izakjackson/v3-stack/issues"
+  },
+  "homepage": "https://github.com/izakjackson/v3-stack",
+  "license": "MIT",
+  "dependencies": {
+    "@formkit/auto-animate": "^0.8.2",
+    "@heroicons/vue": "^2.1.3",
+    "@nuxt/eslint": "latest",
+    "@nuxt/fonts": "latest",
+    "@nuxt/image": "latest",
+    "@nuxtjs/color-mode": "^3.4.1",
+    "@nuxtjs/supabase": "^1.2.2",
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "@pinia/nuxt": "^0.5.1",
+    "@t3-oss/env-nuxt": "^0.10.1",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.13",
+    "@trpc/client": "^10.45.2",
+    "@trpc/server": "^10.45.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "dayjs-nuxt": "^2.1.9",
+    "drizzle-kit": "^0.22.0",
+    "drizzle-orm": "^0.31.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-drizzle": "^0.2.3",
+    "eslint-plugin-prettier": "^5.1.3",
+    "lucide-vue-next": "^0.381.0",
+    "nuxt": "^3.11.2",
+    "pinia": "^2.1.7",
+    "pinia-orm": "^1.9.1",
+    "postgres": "^3.4.4",
+    "radix-vue": "^1.8.2",
+    "shadcn-nuxt": "^0.10.4",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7",
+    "trpc-nuxt": "^0.10.21",
+    "typescript": "^5.4.5",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2",
+    "zod": "^3.23.8"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.3.13",
+    "eslint": "^9.3.0"
+  }
+}
