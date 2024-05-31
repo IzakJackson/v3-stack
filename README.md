@@ -1,4 +1,4 @@
-# Nuxt 3 Boilerplate
+# V3 Stack
 
 This is a production-ready type-safe boilerplate for [Nuxt 3](https://nuxt.com), heavily inspired by [Theo & T3](https://create.t3.gg/), with my personal preferences mixed in.
 
