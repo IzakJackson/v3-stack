@@ -16,13 +16,8 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <Primitive
-    :as="as"
-    :as-child="asChild"
-    :class="
-      cn(buttonVariants({ variant, size }), props.class, 'capitalize font-bold')
-    "
-  >
+  <Primitive :as="as" :as-child="asChild" :class="cn(buttonVariants({ variant, size }), props.class, 'capitalize font-bold')
+    ">
     <slot />
   </Primitive>
 </template>

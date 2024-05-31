@@ -45,7 +45,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "dayjs-nuxt": "^2.1.9",
-    "drizzle-kit": "^0.22.0",
+    "drizzle-kit": "^0.22.1",
     "drizzle-orm": "^0.31.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-drizzle": "^0.2.3",
