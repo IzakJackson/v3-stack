@@ -10,5 +10,6 @@
     "shadcn",
     "Supbase",
     "trpc"
-  ]
+  ],
+  "eslint.experimental.useFlatConfig": true
 }

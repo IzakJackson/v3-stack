@@ -5,19 +5,24 @@ import { type ButtonVariants, buttonVariants } from '.';
 import { cn } from '@/lib/utils';
 
 interface Props extends PrimitiveProps {
-  variant?: ButtonVariants['variant'];
-  size?: ButtonVariants['size'];
-  class?: HTMLAttributes['class'];
+	variant?: ButtonVariants['variant'];
+	size?: ButtonVariants['size'];
+	class?: HTMLAttributes['class'];
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  as: 'button',
+	as: 'button',
 });
 </script>
 
 <template>
-  <Primitive :as="as" :as-child="asChild" :class="cn(buttonVariants({ variant, size }), props.class, 'capitalize font-bold')
-    ">
-    <slot />
-  </Primitive>
+	<Primitive
+		:as="as"
+		:as-child="asChild"
+		:class="
+			cn(buttonVariants({ variant, size }), props.class, 'font-bold capitalize')
+		"
+	>
+		<slot />
+	</Primitive>
 </template>

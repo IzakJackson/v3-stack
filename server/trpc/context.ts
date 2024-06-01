@@ -1,9 +1,7 @@
-import { inferAsyncReturnType } from '@trpc/server';
+import type { inferAsyncReturnType } from '@trpc/server';
 
-/**
- * Creates context for an incoming request
- * @link https://trpc.io/docs/context
- */
+// Create and export an empty context function for tRPC
 export const createContext = () => ({});
 
+// Infer and export the type of the context from the createContext function
 export type Context = inferAsyncReturnType<typeof createContext>;

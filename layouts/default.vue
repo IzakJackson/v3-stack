@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <div class="container py-16 space-y-16">
-      <ColorModeToggle />
-      <slot />
-    </div>
-  </div>
+	<div>
+		<div class="container space-y-16 py-16">
+			<ColorModeToggle />
+			<slot />
+		</div>
+	</div>
 </template>
