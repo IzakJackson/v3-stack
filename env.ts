@@ -11,5 +11,7 @@ export const env = createEnv({
 		SUPABASE_KEY: z.string(),
 	},
 	// Define client-side environment variables
-	client: {},
+	client: {
+		NUXT_PUBLIC_FRONTEND_URL: z.string().url(),
+	},
 });

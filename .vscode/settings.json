@@ -8,6 +8,7 @@
     "nuxtjs",
     "Pinia",
     "shadcn",
+    "signin",
     "Supbase",
     "trpc"
   ],

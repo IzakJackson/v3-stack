@@ -45,6 +45,16 @@ export default defineNuxtConfig({
 		classSuffix: '',
 	},
 	supabase: {
-		redirect: false,
+		clientOptions: {
+			auth: {
+				flowType: 'implicit',
+			},
+		},
+		redirectOptions: {
+			login: '/signin',
+			callback: '/confirm',
+			include: ['/app'],
+			cookieRedirect: true,
+		},
 	},
 });

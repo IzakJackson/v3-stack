@@ -6,6 +6,8 @@
 	"singleQuote": true,
 	"trailingComma": "all",
 	"bracketSpacing": true,
+	"bracketSameLine": true,
 	"arrowParens": "always",
+	"singleAttributePerLine": true,
 	"plugins": ["prettier-plugin-tailwindcss"]
 }
