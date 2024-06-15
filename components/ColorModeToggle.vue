@@ -1,37 +1,48 @@
-<script setup lang="ts">
-import { Button } from '@/components/ui/button';
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { MoonIcon, SunIcon } from '@heroicons/vue/24/outline';
-
-const colorMode = useColorMode();
-</script>
-
 <template>
 	<DropdownMenu>
 		<DropdownMenuTrigger as-child>
-			<Button variant="ghost">
+			<Button
+				variant="ghost"
+				size="icon"
+				class="relative">
 				<MoonIcon
-					class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+					class="absolute h-6 w-6 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
 				<SunIcon
-					class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-				<span class="sr-only">Toggle theme</span>
+					class="absolute h-6 w-6 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+				<span class="sr-only">Toggle Theme</span>
 			</Button>
 		</DropdownMenuTrigger>
-		<DropdownMenuContent align="end">
-			<DropdownMenuItem @click="colorMode.preference = 'light'">
+		<DropdownMenuContent>
+			<DropdownMenuItem
+				class="cursor-pointer"
+				@click="colorMode.preference = 'light'">
 				Light
+				<CheckIcon
+					v-if="colorMode.preference === 'light'"
+					class="ml-auto h-4 w-4 text-primary" />
 			</DropdownMenuItem>
-			<DropdownMenuItem @click="colorMode.preference = 'dark'">
+			<DropdownMenuItem
+				class="cursor-pointer"
+				@click="colorMode.preference = 'dark'">
 				Dark
+				<CheckIcon
+					v-if="colorMode.preference === 'dark'"
+					class="ml-auto h-4 w-4 text-primary" />
 			</DropdownMenuItem>
-			<DropdownMenuItem @click="colorMode.preference = 'system'">
+			<DropdownMenuItem
+				class="cursor-pointer"
+				@click="colorMode.preference = 'system'">
 				System
+				<CheckIcon
+					v-if="colorMode.preference === 'system'"
+					class="ml-auto h-4 w-4 text-primary" />
 			</DropdownMenuItem>
 		</DropdownMenuContent>
 	</DropdownMenu>
 </template>
+
+<script setup lang="ts">
+import { MoonIcon, SunIcon, CheckIcon } from '@heroicons/vue/24/outline';
+
+const colorMode = useColorMode();
+</script>
