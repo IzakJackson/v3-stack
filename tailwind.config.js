@@ -84,6 +84,119 @@ module.exports = {
 				'collapsible-down': 'collapsible-down 0.2s ease-in-out',
 				'collapsible-up': 'collapsible-up 0.2s ease-in-out',
 			},
+			typography: (theme) => ({
+				DEFAULT: {
+					css: {
+						color: theme('colors.foreground'),
+						h1: {
+							'scroll-margin-top': theme('spacing.20'),
+							fontSize: theme('fontSize.4xl'),
+							fontWeight: theme('fontWeight.extrabold'),
+							trackingTight: theme('tracking.tight'),
+							'@screen lg': {
+								fontSize: theme('fontSize.5xl'),
+							},
+						},
+						h2: {
+							marginTop: theme('spacing.10'),
+							'scroll-margin-top': theme('spacing.20'),
+							borderBottomWidth: '1px',
+							paddingBottom: theme('spacing.2'),
+							fontSize: theme('fontSize.3xl'),
+							fontWeight: theme('fontWeight.semibold'),
+							trackingTight: theme('tracking.tight'),
+							transitionProperty: 'color',
+							':first-child': {
+								marginTop: '0',
+							},
+						},
+						h3: {
+							marginTop: theme('spacing.8'),
+							'scroll-margin-top': theme('spacing.20'),
+							fontSize: theme('fontSize.2xl'),
+							fontWeight: theme('fontWeight.semibold'),
+							trackingTight: theme('tracking.tight'),
+						},
+						p: {
+							lineHeight: theme('lineHeight.7'),
+							':not(:first-child)': {
+								marginTop: theme('spacing.6'),
+							},
+						},
+						a: {
+							fontWeight: theme('fontWeight.medium'),
+							color: theme('colors.primary.DEFAULT'),
+							textDecoration: 'none',
+							'&:hover': {
+								textDecoration: 'underline',
+								textDecorationOffset: '4px',
+							},
+						},
+						blockquote: {
+							marginTop: theme('spacing.6'),
+							borderLeftWidth: '2px',
+							paddingLeft: theme('spacing.6'),
+							fontStyle: 'italic',
+						},
+						ul: {
+							marginTop: theme('spacing.6'),
+							marginLeft: theme('spacing.6'),
+							listStyleType: 'disc',
+							'> li': {
+								marginTop: theme('spacing.2'),
+							},
+						},
+						table: {
+							marginTop: theme('spacing.6'),
+							width: '100%',
+							overflowY: 'auto',
+							thead: {
+								tr: {
+									borderTopWidth: '1px',
+									padding: '0',
+									':even': {
+										backgroundColor: theme('colors.muted.DEFAULT'),
+									},
+									th: {
+										borderWidth: '1px',
+										paddingX: theme('spacing.4'),
+										paddingY: theme('spacing.2'),
+										textAlign: 'left',
+										fontWeight: theme('fontWeight.bold'),
+										'&[align=center]': {
+											textAlign: 'center',
+										},
+										'&[align=right]': {
+											textAlign: 'right',
+										},
+									},
+								},
+							},
+							tbody: {
+								tr: {
+									borderTopWidth: '1px',
+									padding: '0',
+									':even': {
+										backgroundColor: theme('colors.muted.DEFAULT'),
+									},
+									td: {
+										borderWidth: '1px',
+										paddingX: theme('spacing.4'),
+										paddingY: theme('spacing.2'),
+										textAlign: 'left',
+										'&[align=center]': {
+											textAlign: 'center',
+										},
+										'&[align=right]': {
+											textAlign: 'right',
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			}),
 		},
 	},
 	plugins: [

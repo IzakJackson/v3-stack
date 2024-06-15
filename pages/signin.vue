@@ -8,7 +8,7 @@
 				or
 				<NuxtLink
 					to="/signup"
-					class="underline hover:text-primary">
+					class="text-primary hover:underline">
 					sign up
 				</NuxtLink>
 			</CardDescription>

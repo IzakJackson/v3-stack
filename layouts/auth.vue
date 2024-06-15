@@ -17,13 +17,13 @@
 						By clicking continue, you agree to our
 						<NuxtLink
 							to="#"
-							class="underline hover:text-primary">
+							class="text-primary hover:underline">
 							Terms of Service
 						</NuxtLink>
 						and
 						<NuxtLink
 							to="#"
-							class="underline hover:text-primary">
+							class="text-primary hover:underline">
 							Privacy Policy
 						</NuxtLink>
 					</p>

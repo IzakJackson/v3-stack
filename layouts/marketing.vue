@@ -26,7 +26,7 @@
 				</Button>
 			</div>
 		</div>
-		<div class="container space-y-16 py-16">
+		<div class="container space-y-16 py-8">
 			<slot />
 		</div>
 	</div>
