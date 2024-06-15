@@ -1,7 +1,7 @@
 <template>
 	<div class="relative">
 		<AppHeader />
-		<div class="container relative space-y-16 py-16">
+		<div class="container relative space-y-16 py-8">
 			<slot />
 		</div>
 		<AppMobileNavBar />
