@@ -22,7 +22,8 @@
 		<CardFooter>
 			<Button
 				class="w-full"
-				type="submit">
+				type="submit"
+				:disabled="isLoading">
 				<LoadingIcon
 					v-if="isLoading"
 					class="h-8 w-8" />
@@ -39,6 +40,8 @@ import { toTypedSchema } from '@vee-validate/zod';
 import * as z from 'zod';
 import { vAutoAnimate } from '@formkit/auto-animate/vue';
 import { useToast } from '@/components/ui/toast/use-toast';
+
+const emits = defineEmits(['success']);
 
 const { toast } = useToast();
 const supabase = useSupabaseClient();
@@ -70,10 +73,7 @@ const onSubmit = handleSubmit(async (values) => {
 
 		if (error) throw error;
 
-		toast({
-			title: 'Magic Link Sent',
-			description: 'Check your email for a magic link to sign in.',
-		});
+		emits('success');
 
 		resetForm();
 	} catch (error) {
@@ -81,6 +81,7 @@ const onSubmit = handleSubmit(async (values) => {
 			error_message: string;
 			error_description: string;
 		};
+
 		toast({
 			title: typedError.error_message,
 			description: typedError.error_description,
