@@ -9,7 +9,7 @@
 								'sm:hidden',
 								route.path === '/app' ? 'text-primary' : '',
 							]">
-							<HomeIcon class="h-6 w-6" />
+							<HomeIcon class="w-6 h-6" />
 						</span>
 						<span
 							:class="[
@@ -30,8 +30,4 @@ import { navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 import { HomeIcon } from '@heroicons/vue/24/outline';
 
 const route = useRoute();
-
-const isActiveRoute = computed(() => {
-	return route.path === '/app';
-});
 </script>
