@@ -6,7 +6,7 @@
 			lead="Update your account information." />
 		<div
 			class="grid gap-6 px-4 py-6 mx-auto max-w-screen-2xl sm:px-6 sm:py-8 md:grid-cols-3 lg:grid-cols-5 lg:px-8 lg:py-12 xl:grid-cols-6">
-			<AppSideNavBar />
+			<AppSideNavBar section="account" />
 			<Card class="md:col-span-2 lg:col-span-4">
 				<CardHeader>
 					<CardTitle>General</CardTitle>
