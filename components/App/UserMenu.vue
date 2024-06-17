@@ -12,7 +12,11 @@
 			<DropdownMenuLabel>My Account</DropdownMenuLabel>
 			<DropdownMenuSeparator />
 			<DropdownMenuItem as-child>
-				<NuxtLink to="/app/account">Profile</NuxtLink>
+				<NuxtLink
+					to="/app/account"
+					class="cursor-pointer"
+					>Profile</NuxtLink
+				>
 			</DropdownMenuItem>
 			<DropdownMenuSub>
 				<DropdownMenuSubTrigger>Theme</DropdownMenuSubTrigger>
@@ -61,13 +65,13 @@ import { UserIcon, CheckIcon } from '@heroicons/vue/24/outline';
 
 const { toast } = useToast();
 const supabase = useSupabaseClient();
-const isLoading = ref(false);
+const loading = ref(false);
 
 const colorMode = useColorMode();
 
 async function signOut() {
 	try {
-		isLoading.value = true;
+		loading.value = true;
 		const { error } = await supabase.auth.signOut();
 		if (error) throw error;
 		navigateTo('/');
@@ -82,7 +86,7 @@ async function signOut() {
 			variant: 'destructive',
 		});
 	} finally {
-		isLoading.value = false;
+		loading.value = false;
 	}
 }
 </script>

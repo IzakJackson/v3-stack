@@ -43,7 +43,7 @@
     "@trpc/client": "^10.45.2",
     "@trpc/server": "^10.45.2",
     "@vee-validate/zod": "^4.12.8",
-    "@vueuse/core": "^10.10.0",
+    "@vueuse/core": "^10.11.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "dayjs-nuxt": "^2.1.9",
