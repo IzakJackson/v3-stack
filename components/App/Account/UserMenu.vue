@@ -3,7 +3,9 @@
 		<DropdownMenuTrigger as-child>
 			<Button
 				variant="ghost"
-				size="icon">
+				size="icon"
+				class="rounded-full !duration-150 hover:ring hover:ring-primary">
+				<AppAccountAvatar />
 				<UserIcon class="h-6 w-6" />
 			</Button>
 			<span class="sr-only">My Account</span>

@@ -6,10 +6,9 @@ create table profiles (
   full_name text,
   avatar_url text,
   website text,
-  bio text,
+  bio text check (char_length(bio) <= 140),
 
   constraint username_length check (char_length(username) >= 3)
-  constraint bio_length check (char_length(bio) <= 140)
 );
 -- Set up Row Level Security (RLS)
 -- See https://supabase.com/docs/guides/database/postgres/row-level-security for more details.

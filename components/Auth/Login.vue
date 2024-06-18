@@ -30,7 +30,6 @@
 				<span v-else>Sign In</span>
 			</Button>
 		</CardFooter>
-		<div class="text-left"><Toaster /></div>
 	</form>
 </template>
 

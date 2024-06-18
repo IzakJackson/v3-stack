@@ -1,7 +1,7 @@
 <template>
 	<div
-		class="fixed top-0 left-0 right-0 z-10 bg-white border-b border-secondary dark:bg-black">
-		<div class="px-4 py-2 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
+		class="fixed left-0 right-0 top-0 z-10 border-b border-secondary bg-white dark:bg-black">
+		<div class="mx-auto max-w-screen-2xl px-4 py-2 sm:px-6 lg:px-8">
 			<div class="flex items-center justify-between">
 				<div class="flex items-center space-x-4">
 					<NuxtLink
@@ -12,7 +12,7 @@
 					<AppNavBar class="hidden sm:block" />
 				</div>
 				<div class="flex items-center">
-					<AppUserMenu />
+					<AppAccountUserMenu />
 				</div>
 			</div>
 		</div>
