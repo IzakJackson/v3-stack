@@ -109,10 +109,8 @@
 										:class="[
 											profileStore.charCount > 140 ? 'text-destructive' : '',
 										]">
-										Maximum 140 characters ({{
-											profileStore.charCount
-										}}/140)</FormDescription
-									>
+										Maximum 140 characters ({{ profileStore.charCount }}/140)
+									</FormDescription>
 									<FormMessage />
 								</FormItem>
 							</FormField>
@@ -224,15 +222,9 @@ const onSubmit = form.handleSubmit(async (values) => {
 			description: 'Your account has been updated.',
 		});
 	} catch (error) {
-		alert(error);
-		const typedError = error as {
-			error_message: string;
-			error_description: string;
-		};
-
 		toast({
-			title: typedError.error_message,
-			description: typedError.error_description,
+			title: `Error: ${error.code}`,
+			description: error.message,
 			variant: 'destructive',
 		});
 	} finally {

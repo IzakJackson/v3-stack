@@ -45,7 +45,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ArrowUpTrayIcon, UserIcon } from '@heroicons/vue/24/outline';
+import { ArrowUpTrayIcon } from '@heroicons/vue/24/outline';
 import { useToast } from '@/components/ui/toast/use-toast';
 import { useProfileStore } from '@/stores/profileStore';
 
