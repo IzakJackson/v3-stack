@@ -50,8 +50,8 @@
 				:class="[
 					'flex items-center gap-3 rounded-md px-3.5 py-2 transition-all',
 					route.path === link.to
-						? 'bg-primary text-black'
-						: 'bg-muted text-muted-foreground hover:bg-secondary hover:text-primary',
+						? 'bg-primary text-primary-foreground'
+						: 'bg-secondary text-secondary-foreground hover:bg-muted hover:text-primary',
 				]">
 				{{ link.label }}
 			</NuxtLink>
