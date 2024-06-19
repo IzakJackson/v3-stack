@@ -1,5 +1,5 @@
 <template>
-	<div class="flex items-center justify-center space-x-2">
+	<div class="flex items-center space-x-2">
 		<CodeBracketIcon class="h-10 w-10 text-primary" />
 		<h1
 			v-if="!icon"
