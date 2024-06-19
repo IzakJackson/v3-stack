@@ -76,14 +76,9 @@ const onSubmit = handleSubmit(async (values) => {
 
 		resetForm();
 	} catch (error) {
-		const typedError = error as {
-			error_message: string;
-			error_description: string;
-		};
-
 		toast({
-			title: typedError.error_message,
-			description: typedError.error_description,
+			title: `Error: ${error.code || ''}`,
+			description: error.message || 'An unknown error occurred.',
 			variant: 'destructive',
 		});
 	} finally {

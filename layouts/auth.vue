@@ -30,6 +30,7 @@
 				</div>
 			</div>
 		</div>
+		<Toaster />
 	</main>
 </template>
 

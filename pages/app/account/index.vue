@@ -126,6 +126,7 @@
 
 					<CardFooter>
 						<Button
+							class="ml-auto"
 							type="submit"
 							:disabled="submitting && profileStore.loading">
 							<LoadingIcon
@@ -216,8 +217,8 @@ const onSubmit = form.handleSubmit(async (values) => {
 		});
 	} catch (error) {
 		toast({
-			title: `Error: ${error.code}`,
-			description: error.message,
+			title: `Error: ${error.code || ''}`,
+			description: error.message || 'An unknown error occurred.',
 			variant: 'destructive',
 		});
 	} finally {

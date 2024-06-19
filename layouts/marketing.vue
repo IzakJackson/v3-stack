@@ -29,6 +29,7 @@
 		<div class="container space-y-16 py-8">
 			<slot />
 		</div>
+		<Toaster />
 	</div>
 </template>
 

@@ -39,8 +39,8 @@ export const useProfileStore = defineStore('profile', () => {
 			}
 		} catch (error) {
 			toast({
-				title: `Error: ${error.code}`,
-				description: error.message,
+				title: `Error: ${error.code || ''}`,
+				description: error.message || 'An unknown error occurred.',
 				variant: 'destructive',
 			});
 		} finally {
@@ -62,8 +62,8 @@ export const useProfileStore = defineStore('profile', () => {
 			src.value = URL.createObjectURL(data);
 		} catch (error) {
 			toast({
-				title: 'Error downloading image',
-				description: error.message,
+				title: `Error: ${error.code || ''}`,
+				description: error.message || 'An unknown error occurred.',
 				variant: 'destructive',
 			});
 		} finally {

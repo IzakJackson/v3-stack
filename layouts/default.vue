@@ -7,6 +7,7 @@
 				<AppLayoutHeader />
 				<slot />
 			</div>
+			<Toaster />
 		</div>
 		<div
 			class="fixed bottom-3 left-3 scale-125 rounded-lg border-2 bg-background">

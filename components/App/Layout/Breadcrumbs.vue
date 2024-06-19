@@ -7,7 +7,7 @@
 				<BreadcrumbLink
 					v-if="crumb.href"
 					as-child>
-					<a :href="crumb.href">{{ crumb.text }}</a>
+					<NuxtLink :to="crumb.href">{{ crumb.text }}</NuxtLink>
 				</BreadcrumbLink>
 				<BreadcrumbPage v-else>{{ crumb.text }}</BreadcrumbPage>
 				<BreadcrumbSeparator v-if="index < breadcrumbs.length - 1" />
@@ -16,10 +16,9 @@
 	</Breadcrumb>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-
-const route = useRoute();
 
 // Function to generate breadcrumbs
 const generateBreadcrumbs = (route) => {
@@ -49,5 +48,7 @@ const generateBreadcrumbs = (route) => {
 	return breadcrumbs;
 };
 
-const breadcrumbs = generateBreadcrumbs(route);
+const route = useRoute();
+
+const breadcrumbs = computed(() => generateBreadcrumbs(route));
 </script>
