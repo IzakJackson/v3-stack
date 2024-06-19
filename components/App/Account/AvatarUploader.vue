@@ -21,7 +21,11 @@
 					class="h-full w-full rounded" />
 			</PopoverContent>
 		</Popover>
-		<div class="relative">
+		<div
+			class="relative"
+			@dragover.prevent
+			@dragenter.prevent
+			@drop.prevent="handleDrop">
 			<label
 				for="single"
 				class="aspect-square group flex h-20 w-20 cursor-pointer items-center justify-center rounded-md border-2 border-dashed border-muted bg-background hover:border-primary">
@@ -39,7 +43,7 @@
 				type="file"
 				accept="image/*"
 				:disabled="profileStore.uploading"
-				@change="uploadAvatar" />
+				@change="handleChange" />
 		</div>
 	</div>
 </template>
@@ -71,16 +75,13 @@ watch(path, () => {
 	}
 });
 
-const uploadAvatar = async (evt) => {
-	const files = evt.target.files;
+const uploadAvatar = async (file) => {
+	profileStore.uploading = true;
 	try {
-		profileStore.uploading = true;
-
-		if (!files || files.length === 0) {
+		if (!file) {
 			throw new Error('You must select an image to upload.');
 		}
 
-		const file = files[0];
 		const fileExt = file.name.split('.').pop();
 		const fileName = `${Math.random()}.${fileExt}`;
 		const filePath = `${fileName}`;
@@ -93,7 +94,7 @@ const uploadAvatar = async (evt) => {
 
 		emit('update:path', filePath); // Emit the updated path
 		emit('upload');
-		profileStore.downloadImage(filePath);
+		await profileStore.downloadAvatar(filePath);
 	} catch (error) {
 		toast({
 			title: 'Error uploading image',
@@ -102,6 +103,20 @@ const uploadAvatar = async (evt) => {
 		});
 	} finally {
 		profileStore.uploading = false;
+	}
+};
+
+const handleDrop = (event) => {
+	const files = event.dataTransfer.files;
+	if (files && files.length > 0) {
+		uploadAvatar(files[0]);
+	}
+};
+
+const handleChange = (event) => {
+	const files = event.target.files;
+	if (files && files.length > 0) {
+		uploadAvatar(files[0]);
 	}
 };
 </script>

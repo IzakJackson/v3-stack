@@ -16,4 +16,3 @@ const { test } = $client;
 
 const hello = await test.hello.useQuery({ text: 'client' });
 </script>
-.
