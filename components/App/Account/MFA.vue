@@ -8,10 +8,11 @@
 					account from unauthorized access.
 				</span>
 				<span v-if="factors.length >= 1 && !loading">
-					Manage your factors.
+					Disable multi-factor authentication to remove the security layer from
+					your account.
 				</span>
 				<span v-if="!factors && loading">
-					Loading your MFA settings. <LoadingIcon />
+					Loading your multi-factor authentication settings. <LoadingIcon />
 				</span>
 			</CardDescription>
 		</CardHeader>
@@ -159,13 +160,38 @@
 				</FormField>
 			</CardContent>
 			<CardFooter class="space-x-2">
-				<Button
-					class="ml-auto"
-					variant="destructive"
-					type="button"
-					@click="onUnenrollClicked">
-					Disable
-				</Button>
+				<Dialog>
+					<DialogTrigger
+						class="ml-auto"
+						:disabled="unenrollFactorId !== factors[0].id">
+						<Button
+							variant="destructive"
+							type="button"
+							:disabled="unenrollFactorId !== factors[0].id">
+							Disable
+						</Button>
+					</DialogTrigger>
+					<DialogContent>
+						<DialogHeader>
+							<DialogTitle>Are you sure you want to disable MFA?</DialogTitle>
+							<DialogDescription>
+								This will disable MFA for your account. You will no longer be
+								able to log in with a second factor, but can set it up again at
+								a later date.
+							</DialogDescription>
+						</DialogHeader>
+
+						<DialogFooter>
+							<Button
+								class="ml-auto"
+								variant="destructive"
+								type="button"
+								@click="onUnenrollClicked">
+								Confirm Disable
+							</Button>
+						</DialogFooter>
+					</DialogContent>
+				</Dialog>
 			</CardFooter>
 		</div>
 	</Card>

@@ -1,54 +1,44 @@
 <template>
-	<Breadcrumb class="hidden md:flex">
+	<Breadcrumb>
 		<BreadcrumbList>
 			<BreadcrumbItem
-				v-for="(crumb, index) in breadcrumbs"
-				:key="index">
+				v-for="(breadcrumb, index) in breadcrumbs"
+				:key="breadcrumb.path">
 				<BreadcrumbLink
-					v-if="crumb.href"
-					as-child>
-					<NuxtLink :to="crumb.href">{{ crumb.text }}</NuxtLink>
+					v-if="index !== breadcrumbs.length - 1"
+					:href="breadcrumb.path"
+					class="flex items-center gap-1.5">
+					{{ breadcrumb.name }} <ChevronRightIcon class="ml-0.5 h-3.5 w-3.5" />
 				</BreadcrumbLink>
-				<BreadcrumbPage v-else>{{ crumb.text }}</BreadcrumbPage>
-				<BreadcrumbSeparator v-if="index < breadcrumbs.length - 1" />
+				<BreadcrumbPage v-else>
+					{{ breadcrumb.name }}
+				</BreadcrumbPage>
 			</BreadcrumbItem>
 		</BreadcrumbList>
 	</Breadcrumb>
 </template>
 
-<script lang="ts" setup>
-import { computed } from 'vue';
+<script setup lang="ts">
 import { useRoute } from 'vue-router';
+import { ChevronRightIcon } from '@heroicons/vue/24/outline';
 
-// Function to generate breadcrumbs
-const generateBreadcrumbs = (route) => {
-	const pathArray = route.path.split('/').filter((path) => path);
-	const breadcrumbs = pathArray.map((path, index) => {
-		const href = '/' + pathArray.slice(0, index + 1).join('/');
-		let text = path.charAt(0).toUpperCase() + path.slice(1);
-
-		// Special case for `/app` to be `Dashboard`
-		if (path === 'app') {
-			text = 'Dashboard';
-		}
-
-		return { text, href };
-	});
-
-	// Add a base breadcrumb if needed
-	if (breadcrumbs.length && breadcrumbs[0].href !== '/app') {
-		breadcrumbs.unshift({ text: 'Dashboard', href: '/app' });
-	}
-
-	// Last breadcrumb should not have a link
-	if (breadcrumbs.length) {
-		breadcrumbs[breadcrumbs.length - 1].href = null;
-	}
-
-	return breadcrumbs;
-};
-
+// Get the current route
 const route = useRoute();
 
-const breadcrumbs = computed(() => generateBreadcrumbs(route));
+// Build breadcrumb items based on the current route
+const breadcrumbs = computed(() => {
+	const pathArray = route.path
+		.split('/')
+		.filter((path) => path && path !== 'app');
+	return [
+		{ name: 'Dashboard', path: '/app' },
+		...pathArray.map((path, index) => {
+			const fullPath = `/app/${pathArray.slice(0, index + 1).join('/')}`;
+			return {
+				name: path.charAt(0).toUpperCase() + path.slice(1),
+				path: fullPath,
+			};
+		}),
+	];
+});
 </script>
