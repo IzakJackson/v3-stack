@@ -1,6 +1,6 @@
 <template>
 	<div class="flex items-center space-x-2">
-		<Popover>
+		<Popover v-if="path">
 			<PopoverTrigger>
 				<Skeleton
 					v-if="profileStore.loading"

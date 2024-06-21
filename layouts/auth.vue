@@ -9,7 +9,7 @@
 				<NuxtLink
 					to="/"
 					class="hover:opacity-90">
-					<BrandLogo />
+					<BrandLogo class="justify-center" />
 				</NuxtLink>
 				<div class="space-y-4">
 					<slot />

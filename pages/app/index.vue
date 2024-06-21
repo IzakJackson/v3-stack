@@ -1,9 +1,7 @@
 <template>
 	<AppLayoutContainer>
 		<div>
-			<Button
-				v-if="hello.data.value"
-				class="mt-4">
+			<Button v-if="hello.data.value">
 				{{ hello.data?.value.greeting }}
 			</Button>
 		</div>

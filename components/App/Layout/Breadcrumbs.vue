@@ -1,5 +1,5 @@
 <template>
-	<Breadcrumb>
+	<Breadcrumb class="hidden md:block">
 		<BreadcrumbList>
 			<BreadcrumbItem
 				v-for="(breadcrumb, index) in breadcrumbs"

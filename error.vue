@@ -9,7 +9,7 @@
 				<button
 					class="hover:opacity-90"
 					@click="handleError">
-					<BrandLogo />
+					<BrandLogo class="justify-center" />
 				</button>
 				<div class="space-y-4">
 					<Card>
