@@ -12,7 +12,10 @@
 					your account.
 				</span>
 				<span v-if="!factors && loading">
-					Loading your multi-factor authentication settings. <LoadingIcon />
+					Loading your multi-factor authentication settings.
+					<LoadingIcon
+						fill="rgb(34, 197, 94)"
+						class="h-8 w-8" />
 				</span>
 			</CardDescription>
 		</CardHeader>

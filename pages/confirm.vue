@@ -6,7 +6,7 @@
 				<LoadingIcon
 					v-if="!isSuccess"
 					class="mx-auto h-8 w-8"
-					fill="#06b6d4" />
+					fill="rgb(34, 197, 94)" />
 				<span v-else> Redirecting... </span>
 			</CardDescription>
 		</CardHeader>
@@ -19,8 +19,6 @@ definePageMeta({
 });
 
 const user = useSupabaseUser();
-const cookieName = useRuntimeConfig().public.supabase.cookieName;
-const redirectPath = useCookie(`${cookieName}-redirect-path`).value;
 
 const isSuccess = ref(false);
 
@@ -29,8 +27,7 @@ watch(
 	() => {
 		if (user.value) {
 			isSuccess.value = true;
-			useCookie(`${cookieName}-redirect-path`).value = null;
-			return navigateTo(redirectPath || '/app');
+			return navigateTo('/app');
 		}
 		return navigateTo('/');
 	},

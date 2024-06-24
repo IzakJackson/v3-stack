@@ -34,7 +34,8 @@
 					class="h-4 w-4 text-muted-foreground group-hover:text-primary" />
 				<LoadingIcon
 					v-else
-					class="h-4 w-4 text-muted-foreground" />
+					fill="rgb(34, 197, 94)"
+					class="h-4 w-4" />
 				<span class="sr-only">Upload</span>
 			</label>
 			<input

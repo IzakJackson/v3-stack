@@ -68,13 +68,18 @@
 			<Button
 				type="button"
 				class="ml-auto"
+				:disabled="submitting"
 				@click="onEnableClicked">
-				Enable
+				<LoadingIcon
+					v-if="submitting"
+					class="h-8 w-8" />
+				<span v-else>Enable</span>
 			</Button>
 			<Button
 				type="button"
 				variant="secondary"
 				class="ml-auto"
+				:disabled="submitting"
 				@click="onCancelClicked">
 				Cancel
 			</Button>
@@ -93,6 +98,7 @@ const value = ref<string[]>([]);
 const verifyCode = ref(''); // contains the code entered by the user
 const factorId = ref(''); // holds the factor ID
 const loading = ref(false);
+const submitting = ref(false);
 
 const handleComplete = (e: string[]) => {
 	verifyCode.value = e.join('');
@@ -102,6 +108,8 @@ const supabase = useSupabaseClient();
 
 const onEnableClicked = async () => {
 	try {
+		submitting.value = true;
+
 		const { data: challenge, error: challengeError } =
 			await supabase.auth.mfa.challenge({ factorId: factorId.value });
 
@@ -133,6 +141,8 @@ const onEnableClicked = async () => {
 			description: error.message || 'An unknown error occurred.',
 			variant: 'destructive',
 		});
+	} finally {
+		submitting.value = false;
 	}
 };
 

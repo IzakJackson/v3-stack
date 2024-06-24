@@ -36,9 +36,10 @@
 
 <script setup lang="ts">
 const user = useSupabaseUser();
+const route = useRoute();
 
 watchEffect(() => {
-	if (user.value) {
+	if (user.value && !route.path.startsWith('/mfa')) {
 		return navigateTo('/app');
 	}
 });

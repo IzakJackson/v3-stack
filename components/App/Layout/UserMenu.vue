@@ -20,6 +20,13 @@
 					>Profile</NuxtLink
 				>
 			</DropdownMenuItem>
+			<DropdownMenuItem as-child>
+				<NuxtLink
+					to="/app/security"
+					class="cursor-pointer"
+					>Security</NuxtLink
+				>
+			</DropdownMenuItem>
 			<DropdownMenuSub>
 				<DropdownMenuSubTrigger>Theme</DropdownMenuSubTrigger>
 				<DropdownMenuPortal>
@@ -67,13 +74,13 @@ import { UserIcon, CheckIcon } from '@heroicons/vue/24/outline';
 
 const { toast } = useToast();
 const supabase = useSupabaseClient();
-const loading = ref(false);
+const submitting = ref(false);
 
 const colorMode = useColorMode();
 
 async function signOut() {
 	try {
-		loading.value = true;
+		submitting.value = true;
 		const { error } = await supabase.auth.signOut();
 		if (error) throw error;
 		navigateTo('/');
@@ -88,7 +95,7 @@ async function signOut() {
 			variant: 'destructive',
 		});
 	} finally {
-		loading.value = false;
+		submitting.value = false;
 	}
 }
 </script>

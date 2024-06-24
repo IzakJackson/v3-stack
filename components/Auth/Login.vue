@@ -23,9 +23,9 @@
 			<Button
 				class="w-full"
 				type="submit"
-				:disabled="loading">
-				<LoadingIcon
-					v-if="loading"
+				:disabled="submitting">
+				<submittingIcon
+					v-if="submitting"
 					class="h-8 w-8" />
 				<span v-else>Sign In</span>
 			</Button>
@@ -44,7 +44,7 @@ const emits = defineEmits(['success']);
 
 const { toast } = useToast();
 const supabase = useSupabaseClient();
-const loading = ref(false);
+const submitting = ref(false);
 
 const formSchema = toTypedSchema(
 	z.object({
@@ -61,7 +61,7 @@ const { handleSubmit, resetForm } = useForm({
 
 const onSubmit = handleSubmit(async (values) => {
 	try {
-		loading.value = true;
+		submitting.value = true;
 
 		const { error } = await supabase.auth.signInWithOtp({
 			email: values.email,
@@ -82,7 +82,7 @@ const onSubmit = handleSubmit(async (values) => {
 			variant: 'destructive',
 		});
 	} finally {
-		loading.value = false;
+		submitting.value = false;
 	}
 });
 </script>

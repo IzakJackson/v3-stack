@@ -4,12 +4,12 @@
 			<BreadcrumbItem
 				v-for="(breadcrumb, index) in breadcrumbs"
 				:key="breadcrumb.path">
-				<BreadcrumbLink
+				<NuxtLink
 					v-if="index !== breadcrumbs.length - 1"
-					:href="breadcrumb.path"
-					class="flex items-center gap-1.5">
+					:to="breadcrumb.path"
+					class="flex items-center gap-1.5 transition-colors hover:text-foreground">
 					{{ breadcrumb.name }} <ChevronRightIcon class="ml-0.5 h-3.5 w-3.5" />
-				</BreadcrumbLink>
+				</NuxtLink>
 				<BreadcrumbPage v-else>
 					{{ breadcrumb.name }}
 				</BreadcrumbPage>

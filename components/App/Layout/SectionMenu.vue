@@ -26,7 +26,7 @@
 					]">
 					{{ link.label }}
 				</NuxtLink>
-				<CollapsibleContent class="-mt-2 space-y-2">
+				<CollapsibleContent>
 					<NuxtLink
 						v-for="link in selectedLinks"
 						:key="link.to"

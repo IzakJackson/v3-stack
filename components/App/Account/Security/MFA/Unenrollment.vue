@@ -1,4 +1,3 @@
-<!-- components/Unenrollment.vue -->
 <template>
 	<div>
 		<CardContent class="grid gap-6">
@@ -94,8 +93,12 @@
 							class="ml-auto"
 							variant="destructive"
 							type="button"
+							:disabled="submitting"
 							@click="onUnenrollClicked">
-							Confirm Disable
+							<LoadingIcon
+								v-if="submitting"
+								class="h-8 w-8" />
+							<span v-else>Confirm Disable</span>
 						</Button>
 					</DialogFooter>
 				</DialogContent>
@@ -112,9 +115,11 @@ const { toast } = useToast();
 defineProps({ factors: { type: Array, default: () => [] } });
 const emit = defineEmits(['success']);
 
-const unenrollFactorId = ref(''); // factor ID to unenroll
+const unenrollFactorId = ref('');
 
 const supabase = useSupabaseClient();
+
+const submitting = ref(false);
 
 const copyToClipboard = async (text: string) => {
 	try {
@@ -135,6 +140,8 @@ const copyToClipboard = async (text: string) => {
 
 const onUnenrollClicked = async () => {
 	try {
+		submitting.value = true;
+
 		const { error } = await supabase.auth.mfa.unenroll({
 			factorId: unenrollFactorId.value,
 		});
@@ -153,26 +160,8 @@ const onUnenrollClicked = async () => {
 			description: error.message,
 			variant: 'destructive',
 		});
+	} finally {
+		submitting.value = false;
 	}
 };
-
-// const fetchFactors = async () => {
-// 	try {
-// 		const { data, error } = await supabase.auth.mfa.listFactors();
-
-// 		if (error) throw error;
-
-// 		props.factors = data.totp || [];
-// 	} catch (error) {
-// 		toast({
-// 			title: `Error: ${error.code || ''}`,
-// 			description: error.message,
-// 			variant: 'destructive',
-// 		});
-// 	}
-// };
-
-// onMounted(async () => {
-// 	await fetchFactors();
-// });
 </script>
