@@ -24,7 +24,7 @@
 				class="w-full"
 				type="submit"
 				:disabled="submitting">
-				<submittingIcon
+				<LoadingIcon
 					v-if="submitting"
 					class="h-8 w-8" />
 				<span v-else>Sign In</span>
