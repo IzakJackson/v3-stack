@@ -39,7 +39,7 @@ const user = useSupabaseUser();
 const route = useRoute();
 
 watchEffect(() => {
-	if (user.value && !route.path.startsWith('/mfa')) {
+	if (user.value && !route.path.startsWith('/verify')) {
 		return navigateTo('/app');
 	}
 });

@@ -81,12 +81,6 @@ const onSubmitClicked = async () => {
 
 		if (aalError) throw aalError;
 
-		console.log(
-			'MFA level after verification',
-			aalData.currentLevel,
-			aalData.nextLevel,
-		);
-
 		// Redirect to the app if the MFA level is 'aal2'
 		if (aalData.currentLevel === 'aal2') {
 			return navigateTo('/app');

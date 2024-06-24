@@ -50,7 +50,6 @@ export const useProfileStore = defineStore('profile', () => {
 
 	const downloadAvatar = async (path) => {
 		if (!path) {
-			console.warn('No avatar path provided');
 			return;
 		}
 		try {

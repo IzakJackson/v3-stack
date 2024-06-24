@@ -22,7 +22,7 @@
 			</DropdownMenuItem>
 			<DropdownMenuItem as-child>
 				<NuxtLink
-					to="/app/security"
+					to="/app/account/security"
 					class="cursor-pointer"
 					>Security</NuxtLink
 				>

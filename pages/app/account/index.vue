@@ -134,7 +134,6 @@
 							:disabled="submitting && profileStore.loading">
 							<LoadingIcon
 								v-if="submitting"
-								fill="rgb(34, 197, 94)"
 								class="h-8 w-8" />
 							<span v-else>Update</span>
 						</Button>

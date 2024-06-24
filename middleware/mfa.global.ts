@@ -54,7 +54,6 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
 			// Redirect to MFA route if required
 			if (data && data.currentLevel !== 'aal2' && data.nextLevel === 'aal2') {
-				console.log('Redirecting to MFA route');
 				return navigateTo(mfaRoute);
 			}
 		}

@@ -1,7 +1,9 @@
-import type { inferAsyncReturnType } from '@trpc/server';
+// server/trpc/context.ts
+import { inferAsyncReturnType } from '@trpc/server';
+import { H3Event } from 'h3';
 
-// Create and export an empty context function for tRPC
-export const createContext = () => ({});
+export async function createContext(event: H3Event) {
+	return { event };
+}
 
-// Infer and export the type of the context from the createContext function
 export type Context = inferAsyncReturnType<typeof createContext>;
